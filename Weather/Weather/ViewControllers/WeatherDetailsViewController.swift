@@ -17,6 +17,7 @@ class WeatherDetailsViewController: UIViewController {
     @IBOutlet weak var labelWind: UILabel!
     
     var coordinate: CLLocationCoordinate2D!
+    var fromHistory = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ extension WeatherDetailsViewController {
     
     func loadWeather() {
         
-        if let weather = CacheManager.manager.load(for: self.coordinate) {
+        if let weather = CacheManager.manager.load(for: self.coordinate, cacheTimeCheck: !self.fromHistory) {
             self.show(weather: weather)
         } else {
             WebServiceManager.manager.loadCurrentWeather(coordinate: coordinate) { (weather, err) in

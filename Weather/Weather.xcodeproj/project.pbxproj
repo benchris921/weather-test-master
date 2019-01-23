@@ -18,6 +18,8 @@
 		A325E87321F8DD70005AD04C /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A325E87221F8DD70005AD04C /* AppUtils.swift */; };
 		A325E87521F8DF53005AD04C /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A325E87421F8DF53005AD04C /* CacheManager.swift */; };
 		A325E87721F8E2A3005AD04C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A325E87621F8E2A3005AD04C /* HistoryViewController.swift */; };
+		A325E87921F8E516005AD04C /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A325E87821F8E516005AD04C /* HistoryItem.swift */; };
+		A325E87B21F8E81E005AD04C /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A325E87A21F8E81E005AD04C /* DateUtility.swift */; };
 		A3AB872421F8BAFA009A75B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB872321F8BAFA009A75B8 /* AppDelegate.swift */; };
 		A3AB872921F8BAFA009A75B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3AB872721F8BAFA009A75B8 /* Main.storyboard */; };
 		A3AB872B21F8BAFC009A75B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3AB872A21F8BAFC009A75B8 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		A325E87221F8DD70005AD04C /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		A325E87421F8DF53005AD04C /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		A325E87621F8E2A3005AD04C /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		A325E87821F8E516005AD04C /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
+		A325E87A21F8E81E005AD04C /* DateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		A3AB872021F8BAFA009A75B8 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AB872321F8BAFA009A75B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3AB872821F8BAFA009A75B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		A325E86221F8BBFD005AD04C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A325E87A21F8E81E005AD04C /* DateUtility.swift */,
 				A325E87221F8DD70005AD04C /* AppUtils.swift */,
 				A325E86A21F8CA5F005AD04C /* AppConfig.swift */,
 			);
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				A325E86C21F8D098005AD04C /* Weather.swift */,
+				A325E87821F8E516005AD04C /* HistoryItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,12 +368,14 @@
 				A3AB872421F8BAFA009A75B8 /* AppDelegate.swift in Sources */,
 				A325E87521F8DF53005AD04C /* CacheManager.swift in Sources */,
 				A325E87121F8D582005AD04C /* WebServiceManager.swift in Sources */,
+				A325E87921F8E516005AD04C /* HistoryItem.swift in Sources */,
 				A325E87721F8E2A3005AD04C /* HistoryViewController.swift in Sources */,
 				A325E86B21F8CA5F005AD04C /* AppConfig.swift in Sources */,
 				A325E87321F8DD70005AD04C /* AppUtils.swift in Sources */,
 				A325E86F21F8D271005AD04C /* WeatherDetailsViewController.swift in Sources */,
 				A325E86721F8BC21005AD04C /* SplashViewController.swift in Sources */,
 				A325E86921F8BE57005AD04C /* MapSelectViewController.swift in Sources */,
+				A325E87B21F8E81E005AD04C /* DateUtility.swift in Sources */,
 				A325E86D21F8D098005AD04C /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

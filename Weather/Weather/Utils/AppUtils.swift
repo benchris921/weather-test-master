@@ -2,10 +2,11 @@
 //  AppUtils.swift
 //
 //
-//  Created by Ichiro Iwai on 2017/03/27.
+//  Created by Benjamin Chris on 2017/03/27.
 //
 
 import UIKit
+import CoreLocation
 
 #if os(iOS)
     import UIKit
@@ -302,5 +303,22 @@ public extension UIImage {
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img!
+    }
+}
+
+public extension CLLocationCoordinate2D {
+    func toString() -> String {
+        return String(format: "%g, %g", latitude, longitude)
+    }
+}
+
+public extension String {
+    func toCoord() -> CLLocationCoordinate2D? {
+        let components = self.components(separatedBy: ", ")
+        if components.count == 2 {
+            return CLLocationCoordinate2D(latitude: Double(components[0]) ?? 0, longitude: Double(components[1]) ?? 0)
+        } else {
+            return nil
+        }
     }
 }

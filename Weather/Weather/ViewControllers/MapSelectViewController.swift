@@ -53,7 +53,7 @@ class MapSelectViewController: UIViewController {
     }
     
     @objc func onHistory() {
-        
+        self.performSegue(withIdentifier: "sid_history", sender: nil)
     }
 
 }
