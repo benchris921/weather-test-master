@@ -24,7 +24,6 @@ class CacheManager: NSObject {
         item.time = Date().timeIntervalSince1970
         item.weather = weather
         
-//        UserDefaults.standard.set(["weather": weather.toJSON(), "time": Date().timeIntervalSince1970], forKey: String(format: "WT%.4g,%.4g", coord.latitude, coord.longitude))
         UserDefaults.standard.set(item.toJSON(), forKey: item.coordString!)
         
         if var history = UserDefaults.standard.object(forKey: "history") as? [String] {
@@ -76,5 +75,21 @@ class CacheManager: NSObject {
         } else {
             return nil
         }
+    }
+    
+    func remove(_ coordinate: CLLocationCoordinate2D) {
+        UserDefaults.standard.removeObject(forKey: coordinate.toString())
+        if var history = UserDefaults.standard.object(forKey: "history") as? [String] {
+            
+            history.enumerated().forEach { (idx, item) in
+                if item == coordinate.toString() {
+                    history.remove(at: idx)
+                    return
+                }
+            }
+            
+            UserDefaults.standard.set(history, forKey: "history")
+        }
+        UserDefaults.standard.synchronize()
     }
 }

@@ -15,6 +15,7 @@ class WeatherDetailsViewController: UIViewController {
     @IBOutlet weak var labelWeather: UILabel!
     @IBOutlet weak var labelTemperature: UILabel!
     @IBOutlet weak var labelWind: UILabel!
+    @IBOutlet weak var imageViewWeatherIcon: UIImageView!
     
     var coordinate: CLLocationCoordinate2D!
     var fromHistory = false
@@ -65,10 +66,14 @@ extension WeatherDetailsViewController {
             self.labelWeather.text = weather.weatherText
             self.labelWind.text = String(format: "%gm/s", weather.windSpeed ?? 0)
             self.labelTemperature.text = String(format: "%g°C", weather.temp ?? 0)
+            if let iconId = weather.weatherIcon {
+                self.imageViewWeatherIcon.imageFromURL(urlString: AppConfig.ThirdPartyAPI.weatherIconBaseUrl(iconId))
+            }
         } else {
             self.labelWeather.text = "Not available"
             self.labelWind.text = "Not available"
             self.labelTemperature.text = "Not available"
+            self.imageViewWeatherIcon.image = nil
         }
     }
 }

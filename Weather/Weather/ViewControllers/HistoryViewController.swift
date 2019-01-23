@@ -73,4 +73,22 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "sid_weather_details", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let item = self.history![indexPath.row]
+            self.history!.remove(at: indexPath.row)
+            
+            DispatchQueue.global(qos: .background).async {
+                CacheManager.manager.remove(item.coordinate())
+            }
+            
+            self.tableViewHistory.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
